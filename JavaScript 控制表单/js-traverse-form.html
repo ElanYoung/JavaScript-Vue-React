@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript遍历表单</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制表单 - 遍历表单</nav>
+</header>
+<hr>
+<form name="formTraverse" method="get">
+    <p>First name：<input type="text" name="fname"/></p>
+    <p>Last name：<input type="text" name="lname"/></p>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+<script type="text/javascript">
+    var elems = formTraverse.elements;
+    for (var i in elems) {
+        var elem = elems[i];
+        if (elem.type) {
+            console.log("element type：" + elem.type + "，element name：" + elem.name);
+        }
+    }
+</script>
+</html>
