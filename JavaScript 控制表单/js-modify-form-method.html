@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改表单的提交方法</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制表单 - 修改表单的提交方法</nav>
+</header>
+<hr>
+<form name="formMethod" method="" action="#">
+    <p>请选择表单提交方法：
+        <select name="selMethod">
+            <option value="">请选择...</option>
+            <option value="get">get方式</option>
+            <option value="post">post方式</option>
+        </select>
+    </p>
+    <br/>
+    <input type="button" value="修改提交方法" onclick="modifyMethod()"/>
+</form>
+<script type="text/javascript">
+    function modifyMethod() {
+        // 获取表单DOM
+        var fMethod = document.formMethod;
+        // 选择的方法
+        var selMethod = fMethod.selMethod.value;
+        // 修改选择的提交方法
+        fMethod.method = selMethod;
+        console.log("表单当前选择的提交方法：" + fMethod.method);
+    }
+</script>
+</body>
+</html>

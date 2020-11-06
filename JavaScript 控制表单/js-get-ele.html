@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过name和id访问表单元素</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制表单 - 通过name和id访问控件</nav>
+</header>
+<hr>
+<form name="formTraverse" method="get">
+    <p>First Name：<input type="text" name="fname" id="id-fname"/></p>
+    <p>Last Name：<input type="text" name="lname" id="id-lname"/></p>
+    <input type="button" id="id-get-name" onclick="onGetName();" value="获取用户名"/>
+</form>
+</body>
+<script type="text/javascript">
+    function onGetName() {
+        var n_fname = document.getElementsByName("fname");
+        console.log(n_fname)
+        var id_lname = document.getElementById("id-lname");
+        console.log("First Name : " + n_fname[0].value);
+        console.log("Last Name : " + id_lname.value);
+    }
+</script>
+</html>
