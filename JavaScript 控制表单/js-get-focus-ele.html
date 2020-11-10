@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态获取焦点控件</title>
+</head>
+<body onclick="onActiveClick();">
+<header>
+    <nav>JavaScript 控制表单 - 动态获取焦点控件</nav>
+</header>
+<hr>
+<form name="formTraverse" method="get">
+    <p>First Name: <input type="text" name="fname" id="id-fname" value="King"/></p>
+    <p>Last Name: <input type="text" name="lname" id="id-lname" value="Wang"/></p>
+    <input type="button" id="id-get-focus-ele" value="动态获取焦点控件"/>
+</form>
+<script>
+    function onActiveClick() {
+        console.log(document.activeElement.id)
+    }
+</script>
+</body>
+</html>

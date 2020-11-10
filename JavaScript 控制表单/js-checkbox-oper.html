@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框全选、取消及判断是否选中的方法</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制表单 - 复选框全选、取消及判断是否选中的方法</nav>
+</header>
+<hr>
+<form name="formTraverse" method="get">
+    <p>Hobby (复选框 checkbox): <br>
+        <input type="checkbox" name="hobby" value="sport"/>Sport<br>
+        <input type="checkbox" name="hobby" value="reading"/>Reading<br>
+        <input type="checkbox" name="hobby" value="tour"/>Tour<br>
+        <input type="checkbox" name="hobby" value="music"/>Music<br>
+        <input type="checkbox" name="hobby" value="movie"/>Movie<br>
+        <input type="checkbox" name="hobby" value="dance"/>Dance<br>
+    </p>
+    <input type="button" id="id-checkbox-all" onclick="onCheckboxAllClick()" value="全部选择"/>
+    <input type="button" id="id-checkbox-none" onclick="onCheckboxNoneClick()" value="全部取消"/>
+    <input type="button" id="id-checkbox-sel" onclick="onCheckboxSelClick()" value="部分选择"/>
+    <input type="button" id="id-checkbox-checked" onclick="onCheckboxCheckedClick()" value="判断是否被选中"/>
+</form>
+<script>
+    function onCheckboxAllClick() {
+        var checkHobby = document.getElementsByName("hobby");
+        for (var i in checkHobby) {
+            checkHobby[i].checked = true;
+        }
+    }
+
+    function onCheckboxNoneClick() {
+        var checkHobby = document.getElementsByName("hobby");
+        for (var i in checkHobby) {
+            checkHobby[i].checked = false;
+        }
+    }
+
+    function onCheckboxSelClick() {
+        var bChecked = [true, false, true, true, false, true];
+        var checkHobby = document.getElementsByName("hobby");
+        for (var i in checkHobby) {
+            checkHobby[i].checked = bChecked[i];
+        }
+    }
+
+    function onCheckboxCheckedClick() {
+        var checkHobby = document.getElementsByName("hobby");
+        for (var i = 0; i < checkHobby.length; i++) {
+            if (checkHobby[i].checked == true) {
+                console.log(checkHobby[i].value + " is checked.")
+            } else {
+                console.log(checkHobby[i].value + " is not checked.")
+            }
+        }
+    }
+</script>
+</body>
+</html>

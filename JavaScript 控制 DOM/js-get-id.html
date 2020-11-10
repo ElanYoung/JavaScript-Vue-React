@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过id获取网页中的元素对象</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制DOM - 通过id获取网页中的元素对象</nav>
+</header>
+<hr>
+<p>First Name: <input type="text" name="fname" id="id-fname"/></p>
+<p>Last Name: <input type="text" name="lname" id="id-lname"/></p>
+<input type="button" id="id-get-id" onclick="onGetId();" value="通过id获取"/>
+<br><br><br>
+<div>
+    <span id="id-span-1">Full Name :&nbsp;&nbsp;</span><br>
+    <span id="id-span-2">Full Name :&nbsp;&nbsp;</span><br>
+    <span id="id-span-3">Full Name :&nbsp;&nbsp;</span><br>
+</div>
+<script>
+    function onGetId() {
+        var id_fname = document.getElementById("id-fname");
+        var id_lname = document.getElementById("id-lname");
+        var full_name = id_fname.value + " " + id_lname.value;
+        for (var i = 1; i <= 3; i++) {
+            document.getElementById("id-span-" + i).innerText += full_name;
+        }
+    }
+</script>
+</body>
+</html>

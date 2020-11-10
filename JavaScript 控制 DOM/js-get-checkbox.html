@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页中的复选框</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制DOM - 通过name获取网页中的复选框</nav>
+</header>
+<hr>
+<p>Hobby: <br>
+    <input type="checkbox" name="hobby" value="sport" checked/>Sport&nbsp;&nbsp;
+    <input type="checkbox" name="hobby" value="reading"/>Reading&nbsp;&nbsp;
+    <input type="checkbox" name="hobby" value="tour" checked/>Tour&nbsp;&nbsp;
+    <input type="checkbox" name="hobby" value="music"/>Music&nbsp;&nbsp;
+    <input type="checkbox" name="hobby" value="movie" checked/>Movie&nbsp;&nbsp;
+    <input type="checkbox" name="hobby" value="dance"/>Dance&nbsp;&nbsp;
+</p>
+<p>
+    <input type="button" id="id-get-checkbox" onclick="onGetCheckbox();" value="获取全部"/>
+    <input type="button" id="id-get-checkbox-checked" onclick="onGetCheckboxChecked();" value="获取全部选中项"/>
+    <input type="button" id="id-get-checkbox-unchecked" onclick="onGetCheckboxUnchecked();" value="获取全部非选中项"/>
+</p>
+<script>
+    function onGetCheckbox() {
+        var cb = document.getElementsByName("hobby");
+        console.log("Checkbox --- ");
+        cb.forEach((item) => {
+            console.log("value : " + item.value + ", text : " + item.nextSibling.nodeValue.trim());
+        });
+    }
+
+    function onGetCheckboxChecked() {
+        var cb = document.getElementsByName("hobby");
+        console.log("checked Checkbox --- ");
+        cb.forEach((item) => {
+            if (item.checked) {
+                console.log("value : " + item.value + ", text : " + item.nextSibling.nodeValue.trim());
+            }
+        });
+    }
+
+    function onGetCheckboxUnchecked() {
+        var cb = document.getElementsByName("hobby");
+        console.log("checked Checkbox --- ");
+        cb.forEach((item) => {
+            if (!item.checked) {
+                console.log("value : " + item.value + ", text : " + item.nextSibling.nodeValue.trim());
+            }
+        });
+    }
+</script>
+</body>
+</html>

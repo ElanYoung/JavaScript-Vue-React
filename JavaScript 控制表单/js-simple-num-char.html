@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单的数字及字符操作</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制表单 - 简单的数字及字符操作</nav>
+</header>
+<hr>
+<script>
+    window.onload = function () {
+        //小写转大写
+        getLowerCase = function (str, type) {
+            type = type || "locate";//是否采取本地转换格式
+            return type === "locate" && str.toLocaleUpperCase() || str.toUpperCase();//返回转换后的值
+        }
+
+        //字符型转换成数值型
+        getNumbers = function (s) {
+            //获取转换值
+            var n = parseInt(s, 10);
+            if (isNaN(n)) return 0;//如果为NaN则转换结果为0
+            return n;
+        }
+
+        //数字转换成字符型
+        getString = function (n) {
+            return n.toString();
+        };
+
+        console.log(getLowerCase("ASDsssss2asdA"));
+
+        /*以下是字符转换数字*/
+        console.log(getNumbers("ASDsssss2asdA"));
+        console.log(getNumbers("123123ASDsssss2asdA"));
+        console.log(getNumbers("ASDsssss2asdA123"));
+
+        /*以下是数字转换成字符型*/
+        console.log(getString(123123) + "类型：" + typeof getString(123123));
+        console.log(getString(234324) + "类型：" + typeof getString(234324));
+    }
+</script>
+</body>
+</html>

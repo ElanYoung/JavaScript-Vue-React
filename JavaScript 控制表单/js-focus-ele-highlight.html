@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高亮显示表单中的焦点控件</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制表单 - 高亮显示表单中的焦点控件</nav>
+</header>
+<hr>
+<form name="formHighlight" method="get">
+    <table>
+        <tr>
+            <th>First Name:</th>
+            <td><input type="text" name="fname" id="id-fname" onfocus="highlight(this.id);" value="King"/></td>
+        </tr>
+        <tr>
+            <th>Last Name:</th>
+            <td><input type="text" name="lname" id="id-lname" onfocus="highlight(this.id);" value="Wang"/></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><input type="button" id="id-btn-focus-ele" onfocus="highlight(this.id);" value="高亮显示焦点控件"/></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function highlight(thisid) {
+        var frmEle = formHighlight.elements;
+        var eleFocus = document.activeElement;
+        for (var i = 0; i < frmEle.length; i++) {
+            if (frmEle[i].id == eleFocus.id) {
+                console.log(frmEle[i].id);
+                console.log(eleFocus.id);
+                document.getElementById(thisid).style.border = "2px solid #666";
+                document.getElementById(thisid).style.fontWeight = "bold";
+                document.getElementById(thisid).style.color = "#fff";
+                document.getElementById(thisid).style.backgroundColor = "#888";
+            } else {
+                console.log(frmEle[i].id);
+                console.log(eleFocus.id);
+                document.getElementById(frmEle[i].id).style.border = "";
+                document.getElementById(frmEle[i].id).style.fontWeight = "";
+                document.getElementById(frmEle[i].id).style.color = "";
+                document.getElementById(frmEle[i].id).style.backgroundColor = "";
+            }
+        }
+    }
+</script>
+</body>
+</html>

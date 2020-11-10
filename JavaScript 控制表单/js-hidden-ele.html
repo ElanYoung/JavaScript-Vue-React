@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>如何使用隐藏控件</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制表单 - 如何使用隐藏控件</nav>
+</header>
+<hr>
+<form name="formHidden" method="get" action="js-hidden-ele.php">
+    <table>
+        <caption>乘客卧铺铺位分配</caption>
+        <tr>
+            <th>姓名:</th>
+            <td><input type="text" name="name" id="id-name"/></td>
+        </tr>
+        <tr>
+            <th>出生年月:</th>
+            <td>
+                <input type="month" name="birth" id="id-birth" onchange="onBirthChange(this.id);"/>
+                <input type="hidden" name="hidden-level" id="id-hidden-level" value=""/>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><input type="submit" id="id-submit" value="提交"/></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function onBirthChange(thisid) {
+        var level = 3;
+        var birth = document.getElementById(thisid).value;
+        var arrBirth = birth.split("-");
+        var birthYear = arrBirth[0];
+        var birthMonth = arrBirth[1];
+        console.log(birthYear);
+        console.log(birthMonth);
+        var now = new Date();
+        var nowYear = now.getFullYear();
+        var nowMonth = now.getMonth() + 1;
+        console.log(nowYear);
+        console.log(nowMonth);
+        if ((nowYear - birthYear) > 60) {
+            level = 1;
+        } else if ((nowYear - birthYear) == 60) {
+            if (nowMonth >= birthMonth)
+                level = 1;
+            else
+                level = 2;
+        } else if ((nowYear - birthYear) > 45 && (nowYear - birthYear) < 60) {
+            level = 2;
+        } else if ((nowYear - birthYear) == 45) {
+            if (nowMonth >= birthMonth)
+                level = 2;
+            else
+                level = 3;
+        } else {
+            level = 3;
+        }
+        document.getElementById("id-hidden-level").value = level;
+    }
+</script>
+</body>
+</html>
