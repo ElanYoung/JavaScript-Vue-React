@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态删除网页文本段落</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制DOM - 动态删除网页文本段落</nav>
+</header>
+<hr>
+<div id="id-div1" class="css-p">
+    <p>动态创建的文本段落.</p>
+</div>
+<br>
+<div id="id-div2" class="css-p">
+    <p>已经存在的文本段落.</p>
+    <p>动态追加(appendChild)的文本段落.</p>
+</div>
+<br>
+<div id="id-div3" class="css-p">
+    <p>第一段文本段落.</p>
+    <p>动态插入(insertAfter)的文本段落.</p>
+    <p>第三段文本段落.</p>
+</div>
+<br>
+<input type="button" id="id-removeChild-p" onclick="onRemoveChildP();" value="动态删除文本段落"/>
+<input type="button" id="id-removeChild-all-p" onclick="onRemoveP();" value="动态删除(remove)文本段落"/>
+<input type="button" id="id-createEle-p-insert" onclick="onRemoveChildAllP();" value="动态删除全部文本段落"/>
+<script>
+    function onRemoveChildP() {
+        var id_div1 = document.getElementById("id-div1");
+        var child_p = id_div1.childNodes;
+        id_div1.removeChild(child_p[0]);
+    }
+
+    function onRemoveP() {
+        var id_div2 = document.getElementById("id-div2");
+        var child_p = id_div2.childNodes;
+        id_div2.remove(child_p);
+    }
+
+    function onRemoveChildAllP() {
+        var id_div3 = document.getElementById("id-div3");
+        var child_p = id_div3.childNodes;
+        for (var i = child_p.length - 1; i >= 0; i--) {
+            id_div3.removeChild(child_p[i]);
+        }
+    }
+</script>
+</body>
+</html>

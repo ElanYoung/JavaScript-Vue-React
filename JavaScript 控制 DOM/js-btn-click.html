@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主动触发按钮单击事件</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制DOM - 主动触发按钮单击事件</nav>
+</header>
+<hr>
+<p>First Name: <input type="text" name="fname" id="id-fname" value="King"/></p>
+<p>Last Name: <input type="text" name="lname" id="id-lname" value="Wang"/></p>
+<input type="button" id="id-btn-name" value="用户触发按钮"/>
+<input type="button" id="id-btn-click" value="主动触发按钮"/>
+<script>
+    var v_btn_name = document.getElementById("id-btn-name");
+    v_btn_name.onclick = function () {
+        var id_fname = document.getElementById("id-fname");
+        var id_lname = document.getElementById("id-lname");
+        var full_name = id_fname.value + " " + id_lname.value;
+        console.log("Full Name : " + full_name);
+    };
+    var v_btn_click = document.getElementById("id-btn-click");
+    v_btn_click.onclick = function () {
+        console.log("主动触发按钮 : ");
+        document.getElementById("id-btn-name").click();
+    };
+</script>
+</body>
+</html>

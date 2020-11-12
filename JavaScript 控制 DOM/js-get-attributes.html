@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历网页元素的全部属性</title>
+</head>
+<body>
+<header>
+    <nav>JavaScript 控制DOM - 遍历网页元素的全部属性</nav>
+</header>
+<hr>
+<p>Name: <input type="text" class="css" name="name" id="id-name" value="King"/></p>
+<input type="button" id="id-get-attr" onclick="onGetAttr();" value="获取标签的全部属性"/>
+<script>
+    function onGetAttr() {
+        var name = document.getElementById("id-name");
+        var attrs = name.attributes;
+        console.log("input name's all attributes --- ");
+        for (var i = 0; i < attrs.length; i++) {
+            console.log("attr name : " + attrs[i].name + ", value : " + attrs[i].value);
+        }
+    }
+</script>
+</body>
+</html>
